@@ -1,29 +1,29 @@
-<script>
+<script setup>
 import{ref,defineProps} from "vue";
 const addedItem = ref('');
 const url = 'http://localhost:3000/lists/';
 const props = defineProps({
-  shoppingItem: Object, list: Object
+  shoppingItem: Object, lists: Object, id: Number 
 })
  const addItem = () =>{
-  fetch(url + props.list.id, {
+  fetch(url + props.lists.id, {
   method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      title: props.list.title,
-      items: props.list.items.push({
+      title: props.lists.title,
+      items: [...props.lists.items,{
         id: props.itemProp.id,
         itemName: addedItem.value,
         purchased: 'false'
-      }),
+      }],
       updatedAt: new Date()
     })
   })
     .then((res) => res.json())
     .then((item) => {
-      console.log()
-      /* emit("itemAdded", item) */
-      resetItem()
+      console.log(props.lists.id)
+    displayList()
+      // resetItem()
     })
 }
 
