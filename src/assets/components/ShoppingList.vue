@@ -1,26 +1,11 @@
 <script setup>
 import {ref} from "vue";
 
-// console.log()
-// // const props = defineProps({
-// //   title: ListTitle
-// // })
-
-// // const lists =[{
-// //     "key": "id",
-// //     "title": "ListTitle.value",
-
-// // }]
-
-// const newNote = ref("");
-// const ListTitle = ref("");
-// const ListBody = ref("");
-
 let lists = ref([]);
 const url = "http://localhost:3000/lists/"
 
 
-const displayNote = () => {
+const displayList = () => {
   fetch(url, {
     method: "GET",
   })
@@ -34,7 +19,7 @@ const displayNote = () => {
     );
 };
 
-displayNote();
+displayList();
 
 
 </script>
@@ -47,10 +32,11 @@ displayNote();
  <span class="listTitle"> {{ list.title }} </span>
 <div v-for="item in list.items" :key="item.id">
  <span class="listItems"> {{ item.itemName }}</span>
+
 </div>
  <span class="updateTime">{{ list.updatedAt }}</span>
   <button @click.prevent="deleteNote(list.id)">Delete</button>
-  <button @click.prevent="editNote(list.id)">Edit</button>
+  <button @click.prevent="editList(list.id)">Edit</button>
 </div>
 </div>
 
