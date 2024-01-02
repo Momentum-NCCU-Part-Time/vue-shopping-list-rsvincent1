@@ -1,5 +1,6 @@
 .shopping-list {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: row;
   flex-wrap: nowrap;
+  column-gap: 3%;
 }

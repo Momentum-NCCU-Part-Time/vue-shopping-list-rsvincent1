@@ -1,50 +1,63 @@
 <script setup>
-import{ref,defineProps} from "vue";
-const addedItem = ref('');
-const url = 'http://localhost:3000/lists/';
-const props = defineProps({
-  shoppingItem: Object, lists: Object, id: Number 
-})
- const addItem = () =>{
-  fetch(url + props.lists.id, {
-  method: 'PATCH',
+import { ref, defineProps } from 'vue'
+import ShoppingItems from './ShoppingItems.vue'
+import ShoppingList from './ShoppingList.vue'
+
+const lists = ref([])
+const addedItem = ref('')
+const url = 'http://localhost:3000/lists/'
+const props = defineProps({ list: Object })
+const emit = defineEmits(['NewAddedItem'])
+
+const displayList = () => {
+  fetch(url, {
+    method: 'GET'
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      lists.value = data
+      console.log(data)
+    })
+}
+
+const addItem = () => {
+  fetch(url + props.list.id, {
+    method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      title: props.lists.title,
-      items: [...props.lists.items,{
-        id: props.itemProp.id,
-        itemName: addedItem.value,
-        purchased: 'false'
-      }],
-      updatedAt: new Date()
+      id: props.list.items.length + 1,
+      title: props.list.title,
+      items: [
+        ...props.list.items,
+        {
+          id: props.list.items.length + 1,
+          itemName: addedItem.value
+        }
+      ],
+
+      updatedAt: new Date().toLocaleString().split(',')[0]
     })
   })
     .then((res) => res.json())
-    .then((item) => {
-      console.log(props.lists.id)
-    displayList()
-      // resetItem()
+    .then((newItem) => {
+      emit('NewAddedItem', newItem)
+      console.log(props.list.items)
+      addedItem.value = ''
     })
 }
 
-const resetItem = () => {
-  addedItem.value = ''
-}
-
+displayList()
 </script>
 
 <template>
-  <!-- class="add-Shoppingitem-form" v-for="item"> -->
-  <form >
+  <!-- <ShoppingList @newItem="displayList"/> -->
+  <form class="add-shopping-item" @submit.prevent="addItem">
+    <label>
+      Add Shopping List Items
+      <input v-model="addedItem" />
+    </label>
+    <input type="submit" value="Add" />
+  </form>
 
-  
-        <label>
-          Add Shopping List Items 
-          <input v-model="addedItem" @click.prevent="addItem" type="text" name="body" />
-        </label>
-        <input type="submit" value="Add" />
-    </form>  
-  
-
-  </template>
-  // @click.prevent="editList"
+  <ShoppingItems :list="props.list" />
+</template>

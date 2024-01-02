@@ -1,45 +1,101 @@
 {
   "lists": [
     {
-      "id": 1,
-      "title": "Sample shopping list",
+      "title": "Target ",
       "items": [
         {
           "id": 1,
-          "itemName": "toilet paper",
-          "purchased": false
+          "itemName": "Paper towels"
+        },
+        {
+          "id": 2,
+          "itemName": "Lotion"
+        },
+        {
+          "id": 3,
+          "itemName": "Paper cups"
+        },
+        {
+          "id": 4,
+          "itemName": "Dog food"
+        },
+        {
+          "id": 5,
+          "itemName": "Bug spray"
+        },
+        {
+          "id": 6,
+          "itemName": "Chips"
         }
       ],
-      "updatedAt": "2018-01-01T00:00:00.000Z"
-    },
-    {
-      "title": "",
-      "updatedAt": "2023-12-19T20:09:27.366Z",
-      "id": 2
-    },
-    {
-      "title": "kj",
-      "updatedAt": "2023-12-19T20:09:32.607Z",
-      "id": 3
-    },
-    {
-      "title": "Kroger ",
-      "items": [],
-      "updatedAt": "2023-12-21T02:29:26.545Z",
-      "id": 4
+      "id": 11,
+      "updatedAt": "1/2/2024"
     },
     {
       "title": "Harris Teeter",
-      "id": 5
+      "items": [
+        {
+          "id": 1,
+          "itemName": "Rice"
+        },
+        {
+          "id": 2,
+          "itemName": "Eggs"
+        },
+        {
+          "id": 3,
+          "itemName": "Milk"
+        },
+        {
+          "id": 4,
+          "itemName": "Chicken"
+        }
+      ],
+      "id": 12,
+      "updatedAt": "1/2/2024"
     },
     {
-      "title": "Target ",
-      "id": 6
-    },
-    {
-      "title": "Aldi",
-      "items": [],
-      "id": 7
+      "title": "Camping Trip",
+      "items": [
+        {
+          "id": 1,
+          "itemName": "Tent"
+        },
+        {
+          "id": 2,
+          "itemName": "Tarp"
+        },
+        {
+          "id": 3,
+          "itemName": "Grill"
+        },
+        {
+          "id": 4,
+          "itemName": "Sleep pad"
+        },
+        {
+          "id": 5,
+          "itemName": "Water"
+        },
+        {
+          "id": 6,
+          "itemName": "Trash bags"
+        },
+        {
+          "id": 7,
+          "itemName": "Pillow"
+        },
+        {
+          "id": 8,
+          "itemName": "Bug spray "
+        },
+        {
+          "id": 9,
+          "itemName": "Blanket"
+        }
+      ],
+      "id": 13,
+      "updatedAt": "1/2/2024"
     }
   ]
 }
