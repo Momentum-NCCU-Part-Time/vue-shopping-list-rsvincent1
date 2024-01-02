@@ -29,6 +29,7 @@ displayList();
 <template>
  
 <ListForm @newList="displayList"/>
+
 <div class="shopping-list" >
 
 <div v-for="list in lists" :key="list.id">
@@ -40,7 +41,6 @@ displayList();
 </div>
  <span class="updateTime">updated on: {{ list.updatedAt }}</span>
 
- <!-- <ItemForm v-bind="list" /> -->
   <ItemForm :list="list"/>
   <DeletList :list="list"/>
 
@@ -49,17 +49,3 @@ displayList();
 
 </template>  
 
-<!-- <ShoppingItems/> -->
-  <!-- <ItemForm v-bind="list" /> -->
-   
-  <!-- <button @click.prevent="deleteNote(list.id)">Delete</button>
-  <button @click.prevent="editList(list.id)">Edit</button> -->
-  <!-- <form class="added-item"  @submit.prevent="addItem">
-    <label>
-          Add Shopping List Items 
-          <input v-model="addedItem" type="text" name="item-name"/>
-    </label>
-  
-          <input type="submit" value="Add" />
-          </form> -->
- <!-- <ShoppingItems :list="list" :addItem="addItem" /> -->
