@@ -19,11 +19,11 @@ const props = defineProps([
     <h1>Vue Shopping List</h1>
     
     <!-- your code here -->
-    <ListForm/>
-<ItemForm/>
+  
+<!-- <ItemForm/> -->
     <ShoppingList/>
-    <ShoppingItems/>
-    <DeleteList/>
+    <!-- <ShoppingItems/> -->
+    <!-- <DeleteList/> -->
   </div>
 </template>
 

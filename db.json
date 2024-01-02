@@ -1,27 +1,6 @@
 {
   "lists": [
     {
-      "id": 1,
-      "title": "Sample shopping list",
-      "items": [
-        {
-          "id": 1,
-          "itemName": "toilet paper",
-          "purchased": false
-        },
-        {
-          "id": 2,
-          "itemName": "Rice",
-          "purchased": false
-        },
-        {
-          "id": 3,
-          "itemName": "ice"
-        }
-      ],
-      "updatedAt": "2023-12-29T14:53:40.513Z"
-    },
-    {
       "title": "Target",
       "items": [
         {
@@ -43,38 +22,76 @@
         {
           "id": 5,
           "itemName": "Bug spray"
+        },
+        {
+          "id": 6,
+          "itemName": "Chips"
         }
       ],
       "id": 2,
-      "updatedAt": "2023-12-30T16:30:39.538Z"
+      "updatedAt": "1/2/2024"
     },
     {
-      "title": "Test List ",
+      "title": "ssss",
       "items": [
         {
-          "itemName": "test item"
+          "id": [],
+          "itemName": "gfd"
         },
         {
-          "itemName": "test"
+          "id": "",
+          "itemName": "kk"
         },
         {
-          "itemName": "sdf"
+          "id": 3,
+          "itemName": "sd"
         },
         {
-          "itemName": "sdfs"
+          "id": 4,
+          "itemName": "dss"
         },
         {
-          "itemName": ""
+          "id": 5,
+          "itemName": "sf"
         },
         {
-          "itemName": "dg"
-        },
-        {
-          "itemName": "sgsg"
+          "id": 6,
+          "itemName": "ssd"
         }
       ],
-      "id": 3,
-      "updatedAt": "2023-12-30T17:06:04.995Z"
+      "id": 5,
+      "updatedAt": "1/2/2024"
+    },
+    {
+      "title": "fad",
+      "items": [
+        {
+          "id": 1,
+          "itemName": "ewf"
+        }
+      ],
+      "id": 6,
+      "updatedAt": "1/2/2024"
+    },
+    {
+      "title": "ss",
+      "items": [],
+      "id": 7
+    },
+    {
+      "title": "sdd",
+      "items": [],
+      "id": 8
+    },
+    {
+      "title": "sdffa",
+      "items": [],
+      "id": 9
+    },
+    {
+      "title": "dfawefd",
+      "items": [],
+      "id": 10
     }
   ]
 }

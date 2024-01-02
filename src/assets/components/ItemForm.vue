@@ -23,11 +23,12 @@ const displayList = () => {
 
         lists.value = data;
        console.log(data)
+  
       }
     );
 };
 
-const addItem = (list) =>{
+const addItem = () =>{
   fetch(url + props.list.id, {
   method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
@@ -37,27 +38,27 @@ const addItem = (list) =>{
       items: [
         ...props.list.items,
         {
-          
+          id: props.list.items.length + 1,
           itemName: addedItem.value,
          
         },
       ],
 
-      updatedAt: new Date().toISOString().split(',')[0]
-    })
+      updatedAt: new Date().toLocaleString().split(',')[0]
+    }),
   })
     .then((res) => res.json())
     .then((newItem) => {
       emit('NewAddedItem', newItem)
-       console.log()
+       console.log(props.list.items)
       addedItem.value = ''
      
-displayList()
+
     })
 
 }
 
-
+displayList()
 </script>
 
 <template>
@@ -80,7 +81,7 @@ displayList()
     <!-- <ItemForm v-bind="list" /> --> 
    <!-- the bind line below will add the add button to  -->
         <!-- <ShoppingItems v-bind:addItem="addedItem"/> -->
-        <!-- <ShoppingItems  :addItem="addItem"/>  -->
+        <ShoppingItems  :list="props.list"/> 
   </template>
   // @click.prevent="editList"
 

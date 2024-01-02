@@ -2,6 +2,13 @@
 import { ref } from 'vue'
 // import ShoppingList from './assets/components/ShoppingList.vue';
 
+let lists = ref([]);
+const emit = defineEmits(["newList"])
+
+const resetList = () => {
+  listTitle.value = ''
+}
+
 const listTitle = ref('')
 const url = 'http://localhost:3000/lists/'
 const saveList = () => {
@@ -11,16 +18,14 @@ const saveList = () => {
     body: JSON.stringify({title: listTitle.value, items: [] })
   })
     .then((res) => res.json())
-    .then((list) => {
+    .then((newList) => { 
 
-      // resetList(),
-      // displayList()
+      resetList()
+    emit("newList", newList)
     })
 }
 
-const resetList = () => {
-  listTitle.value = ''
-}
+
 </script>
 
 <template>

@@ -2,6 +2,7 @@
 import {ref} from "vue";
 import ItemForm from './ItemForm.vue'
 import DeletList from './DeleteList.vue'
+import ListForm from './ListForm.vue';
 
 const addedItem = ref('');
 let lists = ref([]);
@@ -23,9 +24,11 @@ const displayList = () => {
 };
 
 displayList();
+
 </script>
 <template>
-
+ 
+<ListForm @newList="displayList"/>
 <div class="shopping-list" >
 
 <div v-for="list in lists" :key="list.id">
@@ -35,9 +38,9 @@ displayList();
  <span class="listItems"> {{ item.itemName }}</span>
  <input v-bind="addedItem" type ="checkbox"/>
 </div>
- <span class="updateTime">{{ list.updatedAt }}</span>
+ <span class="updateTime">updated on: {{ list.updatedAt }}</span>
 
-
+ <!-- <ItemForm v-bind="list" /> -->
   <ItemForm :list="list"/>
   <DeletList :list="list"/>
 
