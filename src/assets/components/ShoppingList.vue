@@ -27,7 +27,7 @@ displayList();
 
 </script>
 <template>
- 
+ <!-- <ItemForm @NewAddedItem="displayList"/> -->
 <ListForm @newList="displayList"/>
 
 <div class="shopping-list" >
@@ -36,9 +36,12 @@ displayList();
  <h2 class="listTitle"> {{ list.title }} </h2>
  
  <div v-for="item in list.items" :key="item.id">
+  <button @click="removeItem"> X </button>
  <span class="listItems"> {{ item.itemName }}</span>
  <input v-bind="addedItem" type ="checkbox"/>
+
 </div>
+
  <span class="updateTime">updated on: {{ list.updatedAt }}</span>
 
   <ItemForm :list="list"/>

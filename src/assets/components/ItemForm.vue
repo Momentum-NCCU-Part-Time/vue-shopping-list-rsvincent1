@@ -9,16 +9,16 @@ const url = 'http://localhost:3000/lists/'
 const props = defineProps({ list: Object })
 const emit = defineEmits(['NewAddedItem'])
 
-const displayList = () => {
-  fetch(url, {
-    method: 'GET'
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      lists.value = data
-      console.log(data)
-    })
-}
+// const displayList = () => {
+//   fetch(url, {
+//     method: 'GET'
+//   })
+//     .then((res) => res.json())
+//     .then((data) => {
+//       lists.value = data
+//       console.log(data)
+//     })
+// }
 
 const addItem = () => {
   fetch(url + props.list.id, {
@@ -41,17 +41,16 @@ const addItem = () => {
     .then((res) => res.json())
     .then((newItem) => {
       emit('NewAddedItem', newItem)
-      console.log(props.list.items)
       addedItem.value = ''
     })
 }
 
-displayList()
+// displayList()
 </script>
 
 <template>
   <!-- <ShoppingList @newItem="displayList"/> -->
-  <form class="add-shopping-item" @submit.prevent="addItem">
+  <form class="add-shopping-item" @submit.prevent="addItem(); displayList()">
     <label>
       Add Shopping List Items
       <input v-model="addedItem" />
