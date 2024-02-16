@@ -6,27 +6,41 @@ import ItemForm from './ItemForm.vue'
 // const props = defineProps(['list', 'addItem', ]);
 
 const props = defineProps({
-  items: Array, list: Object
+  list: Object
 })
+const emit = defineEmits(['newList'])
 const lists = ref(['']);
 const addedItem = ref('');
 
-const url = 'http://localhost:3000/lists/';
+const url = 'http://localhost:3000/lists/itemId';
 
-const removeItem = () => {
-  fetch(url + props.list.id, {
-    method: 'PATCH',
+// const removeItem = () => {
+//   fetch(url + props.list._id, {
+//     method: 'PATCH',
+//   })
+//     .then((res) => res.json())
+//     .then(() => {
+//        console.log("HERE:", props.list.items)
+//       // emit('newList', newList)
+//       props.list = props.list.items.filter((items) => items.id !== props.list.id);
+     
+//     });
+//   // item.itemName.value = addedItem.value.filter(i) => i !== 
+// }
+// removeItem()
+
+const deleteItem = () => {
+  fetch(url + props.list.items, {
+    method: 'DELETE'
   })
     .then((res) => res.json())
     .then(() => {
-       console.log("HERE:", props.list)
-      // emit('newList', newList)
-      props.list = props.list.filter((item) => item.id !== props.list.id);
-     
-    });
-  // item.itemName.value = addedItem.value.filter(i) => i !== 
+      console.log("HERE:", props.list.items)
+      // displayList()
+    })
+  emit('newList', newList)
+  // lists.value = ''
 }
-removeItem()
 // const displayList = () => {
 //   fetch(url, {
 //     method: "GET",
@@ -73,6 +87,8 @@ removeItem()
 </script>
 
 <template>
+    <!-- <button @click.prevent="deleteList(list.id)">Delete</button> -->
+  <!-- <button @click="deleteItem"> X </button> -->
   <!-- <form> -->
 
 <!-- <label>

@@ -6,7 +6,7 @@ const props = defineProps({
   list: Object
 })
 const emit = defineEmits(['newList'])
-const url = 'http://localhost:3000/lists/'
+const url = 'http://localhost:3000/shoppingList/'
 const lists = ref([])
 
 const displayList = () => {
@@ -25,7 +25,7 @@ onMounted(() => {
 })
 
 const deleteList = () => {
-  fetch(url + props.list.id, {
+  fetch(url + props.list._id, {
     method: 'DELETE'
   })
     .then((res) => res.json())
@@ -37,5 +37,5 @@ const deleteList = () => {
 }
 </script>
 <template>
-  <button @click.prevent="deleteList(list.id), displayList">Delete</button>
+  <button @click.prevent="deleteList(list._id)">Delete</button>
 </template>

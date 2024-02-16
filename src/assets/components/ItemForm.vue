@@ -5,7 +5,7 @@ import ShoppingList from './ShoppingList.vue'
 
 const lists = ref([])
 const addedItem = ref('')
-const url = 'http://localhost:3000/lists/'
+const url = 'http://localhost:3000/shoppingList/'
 const props = defineProps({ list: Object })
 const emit = defineEmits(['NewAddedItem'])
 
@@ -21,7 +21,7 @@ const emit = defineEmits(['NewAddedItem'])
 // }
 
 const addItem = () => {
-  fetch(url + props.list.id, {
+  fetch(url + props.list._id, {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
