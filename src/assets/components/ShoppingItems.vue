@@ -10,21 +10,28 @@ const lists = ref([''])
 const addedItem = ref('')
 
 const url = 'http://localhost:3000/shoppingList/'
-
 // + props.list._id.items
-console.log('HERE:', props.list.items)
+const index = props.list.items ;
+index.forEach((item) => console.log(item._id));
+console.log('HERE:', props.list.items._id)
+console.log('HERE:', props.list._id)
 const deleteItem = () => {
-  fetch(url + props.list._id + '/' + props.list.items, {
-    method: 'PATCH'
+  const index = props.list.items ;
+index.forEach((item) => {
+  fetch(url + props.list._id + '/' + item._id, {
+    method: 'DELETE'
   })
+})
     .then((res) => res.json())
     .then(() => {
       // console.log("HERE:", props.list._id.items._id)
-      displayList()
+      // displayList()
+      
     })
-  // emit('newList', newList)
+  emit('newList', newList)
   // lists.value = ''
 }
+
 </script>
 
 <template>
