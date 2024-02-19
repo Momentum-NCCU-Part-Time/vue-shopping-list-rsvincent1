@@ -21,7 +21,7 @@ const emit = defineEmits(['NewAddedItem'])
 // }
 
 const addItem = () => {
-  fetch(url + props.list._id, {
+  fetch(url + props.list._id + '/items', {
     method: 'PATCH',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({

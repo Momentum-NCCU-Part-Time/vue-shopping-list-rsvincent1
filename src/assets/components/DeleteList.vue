@@ -37,5 +37,9 @@ const deleteList = () => {
 }
 </script>
 <template>
+    <div>
+  <span class="updateTime">updated on: {{ list.updatedAt }}</span>
+</div>
   <button @click.prevent="deleteList(list._id)">Delete</button>
+
 </template>
