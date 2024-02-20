@@ -8,7 +8,7 @@ const resetList = () => {
 }
 
 const listTitle = ref('')
-const url = 'http://localhost:3000/lists/'
+const url = 'http://localhost:3000/shoppingList/'
 const saveList = () => {
   fetch(url, {
     method: 'POST',
